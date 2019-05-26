@@ -1,10 +1,12 @@
 version: 2.1
-jobs:
-  build:
-    docker:
-      — image: circleci/node:7.10
-    working_directory: ~/repo
+
+commands:
+  my-command:
     steps:
-      — checkout
-      - run npm install
-      — run npm test
+      - run: echo "a command is a collection of steps"
+      - run: echo "this command has two steps"
+
+jobs:
+  my-job:
+    steps:
+      - my-command
